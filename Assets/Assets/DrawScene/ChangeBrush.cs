@@ -6,12 +6,21 @@ using UnityEngine;
 public class ChangeBrush : MonoBehaviour
 {
 
-    public bool erase = false;
-
-    public GameObject linePrefab;
-
-    public void brush()
+    void Start()
     {
-        erase = true;
+   
+    }
+
+    void Update()
+    {
+
+    }
+
+    public bool brush = true;
+
+    public void SetBrush()
+    {
+        Debug.Log("brush");
+        brush = true;
     }
 }
