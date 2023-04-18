@@ -1,0 +1,11 @@
+easiest to hardest / chronological order
+
+background music
+fix the thing that makes the first line color red
+better UI (including title screen)
+clear canvas button
+frame number bottom/top left/right
+brush and eraser sizes
+screenshot function
+compile photos in a gif (custom fps!)
+onion skinning/"flipping"
