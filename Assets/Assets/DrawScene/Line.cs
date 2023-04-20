@@ -11,6 +11,12 @@ public class Line : MonoBehaviour
 
     List<Vector2> points;
 
+    public void SetLineWidth(float width)
+    {
+        lineRenderer.startWidth = width;
+        lineRenderer.endWidth = width;
+    }
+
     public void UpdateLine(Vector2 position)
     {
         if (points == null)

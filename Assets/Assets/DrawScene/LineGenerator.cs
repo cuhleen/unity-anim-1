@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,16 +15,27 @@ public class LineGenerator : MonoBehaviour
     private ChangeBrush changeBrush;
     private ChangeEraser changeEraser;
 
+    private WidthSliderScript wSlider;
+
     public Color BrushCol = new Color32(0, 0, 0, 1);
     Color bgCol = new Color32(255, 255, 255, 1);
 
     private Transform linesParent;
     // grupeaza toate liniile intr-un "folder"
 
+    private void UpdateLine()
+    {
+        if (activeLine != null)
+        {
+            activeLine.SetLineWidth(wSlider.width);
+        }
+    }
+
     private void Start()
     {
         changeBrush = FindAnyObjectByType<ChangeBrush>();
         changeEraser = FindAnyObjectByType<ChangeEraser>();
+        wSlider = FindAnyObjectByType<WidthSliderScript>();
         linesParent = new GameObject("LinesParent").transform;
     }
 
@@ -60,7 +72,7 @@ public class LineGenerator : MonoBehaviour
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            mousePos.x = Mathf.Clamp(mousePos.x, -9, 7);
+            mousePos.x = Mathf.Clamp(mousePos.x, -9, 6);
             // ^ scuffed, repara
 
             activeLine.UpdateLine(mousePos);
@@ -74,6 +86,9 @@ public class LineGenerator : MonoBehaviour
             {
                 activeLine.GetComponent<Renderer>().material.color = bgCol;
             }
+
+            Debug.Log("Line Width: " + wSlider.width.ToString()); // Print the width value to the console
+            activeLine.SetLineWidth(wSlider.width);
         }
     }
 }
