@@ -42,6 +42,11 @@ public class LineGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ScreenshotHandler.TakeScreenshot_Static(Screen.width, Screen.height);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             lineCount++;
@@ -59,7 +64,7 @@ public class LineGenerator : MonoBehaviour
             //^ sa apara in ordine inversa, cele mai noi sa apara cel mai sus in hierarchy
 
             newLine.transform.SetParent(linesParent);
-            //^ daca *chiar* vrem sa facem cu layer la un moment dat, asta ne va ajuta
+            //^ daca *chiar* vrem sa facem cu layere la un moment dat, asta ne va ajuta
             //momentan o folosim ca sa putem sterge toate liniile deodata (pt frame nou)
         }
 
