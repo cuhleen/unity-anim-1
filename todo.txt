@@ -1,9 +1,19 @@
 easiest to hardest / chronological order
 
-background music
+delete AllDrawings folder on startup (?)
+fix having to select a width before drawing
+fix ColorPreview
+background music (?)
 better UI (including title screen)
 frame number bottom/top left/right
-clear canvas button
+clear canvas button (function is done)
+copy last frame
+straight line tool
 compile photos in a gif (custom fps!)
 lines to not be drawn when using UI
+frame timeline
+layers (this guy)
 onion skinning/"flipping"
+be able to edit any frames (:despair:)
+
+etc

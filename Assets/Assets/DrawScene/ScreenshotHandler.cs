@@ -8,6 +8,8 @@ public class ScreenshotHandler : MonoBehaviour
     private static ScreenshotHandler instance;
 
     private Camera CanvasCam;
+    //am fi putut face si cu o camera separata, dar, cu cunostintele pe care le am acum, e mai usor doar sa taiem HUD-ul din poza
+    //poate o sa aflu o metoda mai buna cu o alta camera
     private bool takeScreenshotOnNextFrame;
 
     int frameCount = 0;
@@ -23,6 +25,11 @@ public class ScreenshotHandler : MonoBehaviour
         if (takeScreenshotOnNextFrame)
         {
             string folderPath = Application.dataPath + "/AllDrawings/";
+            //poate la un moment dat o sa vreau sa fac incat fiecare animatie sa fie in folderul propriu
+            //momentan toate desenele se pun intr-un folder
+
+            //am facut ca la fiecare pornire de aplicatie sa se stearga continutul folderului
+            //vezi script-ul
 
             takeScreenshotOnNextFrame = false;
             RenderTexture renderTexture = CanvasCam.targetTexture;
@@ -36,6 +43,9 @@ public class ScreenshotHandler : MonoBehaviour
             renderResult.ReadPixels(rect, 0, 0);
 
             frameCount++;
+            //daca user-ul apasa pe butonul de poza inseamna ca desenul curent e gata
+            //canvasul se elibereaza
+            //trecem la frame-ul urmator din animatie
 
             byte[] byteArray = renderResult.EncodeToPNG();
             System.IO.Directory.CreateDirectory(folderPath);
@@ -57,5 +67,8 @@ public class ScreenshotHandler : MonoBehaviour
     {
         instance.TakeScreenshot(width, height);
     }
+
+    //^ functia asta este o "poarta de intrare" (vezi "public static void")
+    //adica putem apela asta din alte script-uri
 
 }
