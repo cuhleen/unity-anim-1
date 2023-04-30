@@ -70,7 +70,7 @@ public class LineGenerator : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            activeLine = null;
+             activeLine = null;
         }
 
         if(activeLine != null)
