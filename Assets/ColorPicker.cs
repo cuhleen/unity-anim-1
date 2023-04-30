@@ -71,6 +71,7 @@ public class ColorPicker : MonoBehaviour
 
             DebugText.text = Math.Round(delta.x, 2) + "<br>" + Math.Round(delta.y, 2);
             ///DebugText.color = color;
+            ///ratio
 
             OnColorPreview?.Invoke(color);
 

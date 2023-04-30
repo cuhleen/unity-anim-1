@@ -16,7 +16,7 @@ public class WidthSliderScript : MonoBehaviour
         _widthSlider.onValueChanged.AddListener((v) =>
         {
             width = v;
-            Debug.Log(width);
+            //Debug.Log(width);
         });
     }
 

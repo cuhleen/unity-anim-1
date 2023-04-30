@@ -14,7 +14,7 @@ public class LineGenerator : MonoBehaviour
 
     Line activeLine;
 
-    int lineCount = 0;
+    public int lineCount = 0;
 
     private ChangeBrush changeBrush;
     private ChangeEraser changeEraser;
@@ -24,7 +24,7 @@ public class LineGenerator : MonoBehaviour
     public Color BrushCol = new Color32(0, 0, 0, 1);
     Color bgCol = new Color32(255, 255, 255, 1);
 
-    private Transform linesParent;
+    public Transform linesParent;
     // grupeaza toate liniile intr-un "folder"
 
     private void UpdateLine()
@@ -43,33 +43,9 @@ public class LineGenerator : MonoBehaviour
         linesParent = new GameObject("LinesParent").transform;
     }
 
-    IEnumerator ClearCanvas()
-    {
-        yield return new WaitForSeconds(0.01f);
-        //asteapta ^ inainte sa se execute codul de jos
-
-        for (int i = linesParent.childCount - 1; i >= 0; i--)
-        {
-            Destroy(linesParent.GetChild(i).gameObject);
-        }
-
-        lineCount = 0;
-        //nu mai avem linii, deci resetam lineCount
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            //in loc de space, o sa fie buton separat, dar momentan las la space
-        {
-            ScreenshotHandler.TakeScreenshot_Static(Screen.width, Screen.height);
-            //salveaza poza, apoi vrem sa stergem canvas-ul
-
-            StartCoroutine(ClearCanvas());
-            //codul de stergere e asa de rapid incat sterge liniile inainte sa se exporteze poza
-            //asa ca am dat un delay la codul de stergere
-        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -116,7 +92,8 @@ public class LineGenerator : MonoBehaviour
                 activeLine.GetComponent<Renderer>().material.color = bgCol;
             }
 
-            Debug.Log("Line Width: " + wSlider.width.ToString()); // Print the width value to the console
+            //Debug.Log("Line Width: " + wSlider.width.ToString());
+
             activeLine.SetLineWidth(wSlider.width);
         }
     }

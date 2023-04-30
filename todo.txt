@@ -3,10 +3,8 @@ easiest to hardest / chronological order
 delete AllDrawings folder on startup (?)
 fix having to select a width before drawing
 fix ColorPreview
-background music (?)
+background music (done in a fork, will add to main)
 better UI (including title screen)
-frame number bottom/top left/right
-clear canvas button (function is done)
 copy last frame
 straight line tool
 compile photos in a gif (custom fps!)
