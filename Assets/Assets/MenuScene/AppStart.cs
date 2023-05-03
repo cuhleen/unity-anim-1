@@ -6,16 +6,24 @@ using System.IO;
 
 public class AppStart : MonoBehaviour
 {
+
+    public Texture2D cursorTexture; 
+    public Vector2 cursorHotspot = new Vector2(0, 0); //hotspot = marime..?
+
     // Start is called before the first frame update
     void Start()
     {
         string folderPath = Application.dataPath + "/AllDrawings/";
-        
+        //Invoke("DeleteFolderContents", 1f);
+        Directory.Delete(folderPath, true);
+        Directory.CreateDirectory(folderPath);
     }
 
-    private void DeleteFolderContents(string path)
+    /*
+    private void DeleteFolderContents()
     {
-        DirectoryInfo directoryInfo = new DirectoryInfo(path);
+        
+        DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
         //sa stim unde sa ne uitam
         FileInfo[] files = directoryInfo.GetFiles();
         //facem un vector cu toate filele din folder
@@ -23,13 +31,9 @@ public class AppStart : MonoBehaviour
         {
             file.Delete();
         }
-
-        DirectoryInfo[] directories = directoryInfo.GetDirectories();
-        foreach (DirectoryInfo directory in directories)
-        {
-            directory.Delete(true);
-        }
+        
     }
+    */
 
     // Update is called once per frame
     void Update()

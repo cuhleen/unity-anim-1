@@ -1,14 +1,12 @@
 easiest to hardest / chronological order
 
-delete AllDrawings folder on startup (?)
-fix having to select a width before drawing
-fix ColorPreview
 background music (done in a fork, will add to main)
-better UI (including title screen)
-copy last frame
+copy last frame function
 straight line tool
-compile photos in a gif (custom fps!)
+better way to change the cursor (there really has to be a better way... right? RIGHT??)
+fix having to select a width before drawing
 lines to not be drawn when using UI
+compile photos in a gif (will have to use external app, thanks Unity)
 frame timeline
 layers (this guy)
 onion skinning/"flipping"

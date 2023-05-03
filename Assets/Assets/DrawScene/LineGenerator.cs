@@ -41,6 +41,9 @@ public class LineGenerator : MonoBehaviour
         changeEraser = FindAnyObjectByType<ChangeEraser>();
         wSlider = FindAnyObjectByType<WidthSliderScript>();
         linesParent = new GameObject("LinesParent").transform;
+        GameObject newLine = Instantiate(linePrefab);
+        activeLine = newLine.GetComponent<Line>();
+        activeLine.SetLineWidth(0.5f);
     }
 
     // Update is called once per frame
@@ -70,7 +73,7 @@ public class LineGenerator : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-             activeLine = null;
+            activeLine = null;
         }
 
         if(activeLine != null)
