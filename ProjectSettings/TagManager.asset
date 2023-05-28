@@ -36,8 +36,11 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - test
   m_SortingLayers:
+  - name: Sq
+    uniqueID: 2206849995
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

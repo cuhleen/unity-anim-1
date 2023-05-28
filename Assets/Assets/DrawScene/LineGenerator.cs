@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LineGenerator : MonoBehaviour
 {
@@ -44,13 +45,62 @@ public class LineGenerator : MonoBehaviour
         GameObject newLine = Instantiate(linePrefab);
         activeLine = newLine.GetComponent<Line>();
         activeLine.SetLineWidth(0.5f);
+        activeLine = null;
+
+        GameObject RandomStartLine = GameObject.Find("Line(Clone)");
+        Destroy(RandomStartLine);
     }
+
+    bool OnCanvas()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (mousePos.x > -9 && mousePos.x < 6.5 && mousePos.y > -5 && mousePos.y < 5)
+            return true;
+
+        return false;
+    }
+
+    //PROBLEM!!
+    /*
+    Oh my god
+    so
+    when you come from the main menu to the drawing scene
+    the width is set to "0" for some reason
+    but that's not so bad
+    the user just ends up having to modify the width slider on their first launch
+    BUT
+    if the user DOESN'T CLICK before modifying the width slider
+    a line is formed based on how the user MOVED THEIR MOUSE TOWARDS THE SLIDER BAR
+    IT LOOKS SO BAD
+    I have been trying SEVERAL methods of simulating a fake click
+    didn't work
+    I tried looking for ways to artifically move the mouse using code
+    didn't work
+    I tried implementing a flag for first startup/first click
+    didn't work
+
+    I'll just click myself when presenting this project and that's it
+
+
+
+    why must it be like this
+
+
+    EDIT AFTER NOT LONGER THAN 3 MINUTES
+    wadda hell fixed??????????
+    but now a seemingly random and ominous, short and stubby "Line(Clone)" appears in the middle of the screen on startup
+    
+    EDIT AFTER NOT LONGER THAN 1 MINUTE
+    ok adding the 2 lines of code to find that random line wasn't *that* hard
+    jeez louise
+
+    Now I just have to remove the swear words I may or may not have used throughout this rather large comment and other variables
+     */
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && OnCanvas() == true)
         {
             lineCount++;
             GameObject newLine = Instantiate(linePrefab);

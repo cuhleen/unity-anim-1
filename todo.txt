@@ -1,15 +1,13 @@
 easiest to hardest / chronological order
 
-background music (done in a fork, will add to main)
 copy last frame function
 straight line tool
-better way to change the cursor (there really has to be a better way... right? RIGHT??)
-fix having to select a width before drawing
-lines to not be drawn when using UI
-compile photos in a gif (will have to use external app, thanks Unity)
+better way to change the cursor (there really has to be a better way... right? RIGHT??) (maybe sprites instead of actual cursors?)
+also make cursors bigger/better quality
 frame timeline
 layers (this guy)
 onion skinning/"flipping"
 be able to edit any frames (:despair:)
+not delve into insanity
 
 etc
