@@ -49,7 +49,13 @@ public class ScreenshotHandler : MonoBehaviour
 
             byte[] byteArray = renderResult.EncodeToPNG();
             System.IO.Directory.CreateDirectory(folderPath);
-            System.IO.File.WriteAllBytes(folderPath + "/Drawing" + frameCount + ".png", byteArray);
+            if(frameCount < 10)
+                System.IO.File.WriteAllBytes(folderPath + "/Drawing00" + frameCount + ".png", byteArray);
+            else if(frameCount < 100)
+                System.IO.File.WriteAllBytes(folderPath + "/Drawing0" + frameCount + ".png", byteArray);
+            else
+                System.IO.File.WriteAllBytes(folderPath + "/Drawing" + frameCount + ".png", byteArray);
+
             Debug.Log("Saved CameraScreenshot.png");
 
             RenderTexture.ReleaseTemporary(renderTexture);
